@@ -20,6 +20,17 @@ export class Vector2D{
         return new Vector2D(xsum, ysum)
     }
 
+    static sum_from_list(list) {
+        let xsum = 0
+        let ysum = 0
+        for (let i =0; i < list.length; i++){
+            xsum += list[i].x
+            ysum += list[i].y
+        }
+
+        return new Vector2D(xsum, ysum)
+    }
+
     distance() {
         return Math.sqrt(this.x **2 + this.y**2)
     }
@@ -34,6 +45,19 @@ export class Vector3D{
         this.x = x
         this.y = y
         this.z = z
+    }
+
+    static sum_from_list(list) {
+        let xsum = 0
+        let ysum = 0
+        let zsum = 0
+        for (let i =0; i < list.length; i++){
+            xsum += list[i].x
+            ysum += list[i].y
+            zsum += list[i].z
+        }
+
+        return new Vector3D(xsum, ysum, zsum)
     }
 
     norm() {
