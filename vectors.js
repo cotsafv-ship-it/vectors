@@ -9,8 +9,23 @@ export class Vector2D{
         return vec1.x * vec2.x + vec1.y * vec2.y
     }
 
+    static add(...args) {
+        let xsum = 0
+        let ysum = 0
+        for (let i=0; i < args.length; i++) {
+            xsum += args[i].x 
+            ysum += args[i].y
+        }
+
+        return new Vector2D(xsum, ysum)
+    }
+
     distance() {
         return Math.sqrt(this.x **2 + this.y**2)
+    }
+
+    norm(){
+        return new Vector2D(this.x / this.distance(),this.y / this.distance())
     }
 }
 
@@ -19,6 +34,23 @@ export class Vector3D{
         this.x = x
         this.y = y
         this.z = z
+    }
+
+    norm() {
+        return new Vector3D(this.x / this.distance(),this.y / this.distance(),this.z / this.distance())
+    }
+
+    static add(...args) {
+        let xsum = 0
+        let ysum = 0
+        let zsum = 0
+        for (let i=0; i < args.length; i++) {
+            xsum += args[i].x 
+            ysum += args[i].y
+            zsum += args[i].z
+        }
+
+        return new Vector3D(xsum, ysum, zsum)
     }
 
     static dot_product(vec1, vec2) {
